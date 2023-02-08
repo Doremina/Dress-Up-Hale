@@ -1,19 +1,22 @@
 package windows;
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Wardrobe {
 	
 	public Wardrobe() {
 		
 		/*
-		fotoðraf katmanlarý eklenecek
+		fotoÄŸraf katmanlarÄ± eklenecek
 		butonlar gruplara konulacak - elbiselere dikkat et
-		butonlara action listener eklenecek, deselect olduðunda var olan katmanlarýn visibility'i false yapmayý unutma
+		butonlara action listener eklenecek, deselect olduÄŸunda var olan katmanlarÄ±n visibility'i false yapmayÄ± unutma
 		*/
 		JFrame wardrobeFrame = new JFrame();
 		wardrobeFrame.setResizable(false);
 		wardrobeFrame.setBounds(0, 0, 1920, 1080); 
+		
 		
 		JPanel contentPane = new JPanel();
 		contentPane.setSize(1920, 1080);
@@ -25,8 +28,20 @@ public class Wardrobe {
 		contentPane.add(haleWardrobe);
 		haleWardrobe.setLayout(null);
 		
+		JLabel pinkDress1 = new JLabel("");
+		pinkDress1.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/pink dress1.png")));
+		pinkDress1.setBounds(0, 0, 444, 817);
+		pinkDress1.setVisible(false);
+		haleWardrobe.add(pinkDress1);
+		
+		JLabel yellowDress1 = new JLabel("");
+		yellowDress1.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/yellow dress1.png")));
+		yellowDress1.setBounds(0, 0, 444, 817);
+		yellowDress1.setVisible(false);
+		haleWardrobe.add(yellowDress1);
+		
 		JLabel haleArt = new JLabel("New label");
-		haleArt.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/hale.png")));
+		haleArt.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/hale1.png")));
 		haleArt.setBounds(0, 0, 444, 817);
 		haleWardrobe.add(haleArt);
 		
@@ -35,12 +50,33 @@ public class Wardrobe {
 		haleWardrobe.add(dressesPanel);
 		dressesPanel.setLayout(null);
 		
+		/*
+		 new function to set all dress, shoe ... visible false
+		 */
 		JRadioButton dress1 = new JRadioButton("New radio button");
-		dress1.setBounds(107, 49, 111, 23);
+		dress1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				yellowDress1.setVisible(false);
+				
+				pinkDress1.setVisible(true);
+				
+			}
+		});
+		dress1.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/pink dress1.png")));
+		dress1.setBounds(6, 7, 238, 244);
 		dressesPanel.add(dress1);
 		
 		JRadioButton dress2 = new JRadioButton("New radio button");
-		dress2.setBounds(403, 49, 111, 23);
+		dress2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pinkDress1.setVisible(false);
+				
+				yellowDress1.setVisible(true);
+				
+			}
+		});
+		dress2.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/yellow dress1.png")));
+		dress2.setBounds(315, 7, 220, 202);
 		dressesPanel.add(dress2);
 		
 		JRadioButton dress3 = new JRadioButton("New radio button");
@@ -135,5 +171,12 @@ public class Wardrobe {
 		backgroundLabel.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/background 1920x1080.png")));
 		backgroundLabel.setBounds(0, 0, 1906, 1043);
 		contentPane.add(backgroundLabel);
+		
+		
+		
+		wardrobeFrame.setVisible(true);
+		
 	}
+	
+
 }
