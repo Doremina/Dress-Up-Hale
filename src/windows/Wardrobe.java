@@ -8,11 +8,6 @@ public class Wardrobe {
 	
 	public Wardrobe() {
 		
-		/*
-		fotoğraf katmanları eklenecek
-		butonlar gruplara konulacak - elbiselere dikkat et
-		butonlara action listener eklenecek, deselect olduğunda var olan katmanların visibility'i false yapmayı unutma
-		*/
 		JFrame wardrobeFrame = new JFrame();
 		wardrobeFrame.setResizable(false);
 		wardrobeFrame.setBounds(0, 0, 1920, 1080); 
@@ -32,13 +27,33 @@ public class Wardrobe {
 		pinkDress1.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/pink dress1.png")));
 		pinkDress1.setBounds(0, 0, 444, 817);
 		pinkDress1.setVisible(false);
-		haleWardrobe.add(pinkDress1);
+		
+		JLabel greenDress1 = new JLabel("");
+		greenDress1.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/green dress 1.png")));
+		greenDress1.setBounds(0, 0, 444, 817);
+		greenDress1.setVisible(false);
+		
+		JLabel pinkDress2 = new JLabel("");
+		pinkDress2.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/pink dress 2.png")));
+		pinkDress2.setBounds(0, 0, 444, 817);
+		pinkDress2.setVisible(false);
+		
+		JLabel blueDress1 = new JLabel("");
+		blueDress1.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/blue dress 1.png")));
+		blueDress1.setBounds(0, 0, 444, 817);
+		blueDress1.setVisible(false);
 		
 		JLabel yellowDress1 = new JLabel("");
 		yellowDress1.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/yellow dress1.png")));
 		yellowDress1.setBounds(0, 0, 444, 817);
 		yellowDress1.setVisible(false);
+		
+		haleWardrobe.add(blueDress1);
+		haleWardrobe.add(pinkDress1);
 		haleWardrobe.add(yellowDress1);
+		haleWardrobe.add(greenDress1);
+		haleWardrobe.add(pinkDress2);
+		
 		
 		JLabel haleArt = new JLabel("New label");
 		haleArt.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/hale1.png")));
@@ -46,50 +61,101 @@ public class Wardrobe {
 		haleWardrobe.add(haleArt);
 		
 		JPanel dressesPanel = new JPanel();
-		dressesPanel.setBounds(567, 0, 1181, 151);
+		dressesPanel.setBounds(567, 0, 1020, 150);
 		haleWardrobe.add(dressesPanel);
 		dressesPanel.setLayout(null);
 		
 		/*
 		 new function to set all dress, shoe ... visible false
 		 */
-		JRadioButton dress1 = new JRadioButton("New radio button");
-		dress1.addActionListener(new ActionListener() {
+		JRadioButton pinkDress1button = new JRadioButton("New radio button");
+		pinkDress1button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				yellowDress1.setVisible(false);
+				greenDress1.setVisible(false);
+				blueDress1.setVisible(false);
+				pinkDress2.setVisible(false);
 				
 				pinkDress1.setVisible(true);
 				
 			}
 		});
-		dress1.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/pink dress1.png")));
-		dress1.setBounds(6, 7, 238, 244);
-		dressesPanel.add(dress1);
+		pinkDress1button.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/pink dress1.png")));
+		pinkDress1button.setBounds(6, 7, 238, 244);
+		dressesPanel.add(pinkDress1button);
 		
-		JRadioButton dress2 = new JRadioButton("New radio button");
-		dress2.addActionListener(new ActionListener() {
+		JRadioButton yellowDress1button = new JRadioButton("New radio button");
+		yellowDress1button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pinkDress1.setVisible(false);
+				yellowDress1.setVisible(false);
+				greenDress1.setVisible(false);
+				blueDress1.setVisible(false);
+				pinkDress2.setVisible(false);
+				
 				
 				yellowDress1.setVisible(true);
 				
 			}
 		});
-		dress2.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/yellow dress1.png")));
-		dress2.setBounds(315, 7, 220, 202);
-		dressesPanel.add(dress2);
+		yellowDress1button.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/yellow dress1.png")));
+		yellowDress1button.setBounds(246, 7, 220, 202);
+		dressesPanel.add(yellowDress1button);
 		
-		JRadioButton dress3 = new JRadioButton("New radio button");
-		dress3.setBounds(589, 88, 111, 23);
-		dressesPanel.add(dress3);
+		JRadioButton greenDress1button = new JRadioButton("New radio button");
+		greenDress1button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pinkDress1.setVisible(false);
+				yellowDress1.setVisible(false);
+				greenDress1.setVisible(false);
+				blueDress1.setVisible(false);
+				pinkDress2.setVisible(false);
+				
+				
+				greenDress1.setVisible(true);
+				
+			}
+		});
+		greenDress1button.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/green dress 1.png")));
+		greenDress1button.setBounds(470, 0, 220, 304);
+		dressesPanel.add(greenDress1button);
 		
-		JRadioButton dress4 = new JRadioButton("New radio button");
-		dress4.setBounds(732, 61, 111, 23);
-		dressesPanel.add(dress4);
+		JRadioButton blueDress1button = new JRadioButton("New radio button");
+		blueDress1button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pinkDress1.setVisible(false);
+				yellowDress1.setVisible(false);
+				greenDress1.setVisible(false);
+				blueDress1.setVisible(false);
+				pinkDress2.setVisible(false);
+				
+				
+				blueDress1.setVisible(true);
+				
+			}
+		});
+		blueDress1button.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/blue dress 1.png")));
+		blueDress1button.setActionCommand("");
+		blueDress1button.setBounds(692, 0, 207, 143);
+		dressesPanel.add(blueDress1button);
 		
-		JRadioButton dress5 = new JRadioButton("New radio button");
-		dress5.setBounds(930, 49, 111, 23);
-		dressesPanel.add(dress5);
+		JRadioButton pinkDress2button = new JRadioButton("New radio button");
+		pinkDress2button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pinkDress1.setVisible(false);
+				yellowDress1.setVisible(false);
+				greenDress1.setVisible(false);
+				blueDress1.setVisible(false);
+				pinkDress2.setVisible(false);
+				
+				
+				pinkDress2.setVisible(true);
+				
+			}
+		});
+		pinkDress2button.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/pink dress 2.png")));
+		pinkDress2button.setBounds(851, 5, 163, 206);
+		dressesPanel.add(pinkDress2button);
 		
 		JPanel shirtsPanel = new JPanel();
 		shirtsPanel.setBounds(566, 230, 1182, 153);
@@ -168,7 +234,7 @@ public class Wardrobe {
 		
 		JLabel backgroundLabel = new JLabel("");
 		backgroundLabel.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-		backgroundLabel.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/background 1920x1080.png")));
+		//backgroundLabel.setIcon(new ImageIcon(Wardrobe.class.getResource("/sources/background 1920x1080.png")));
 		backgroundLabel.setBounds(0, 0, 1906, 1043);
 		contentPane.add(backgroundLabel);
 		
@@ -177,6 +243,4 @@ public class Wardrobe {
 		wardrobeFrame.setVisible(true);
 		
 	}
-	
-
 }
